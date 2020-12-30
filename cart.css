@@ -1,0 +1,40 @@
+.navbar {
+    background-color: red;
+    align-items: center;
+    padding: 3px;
+    margin-bottom: 3px;
+}
+
+.navbar h1 {
+    padding-left: 20px;
+    padding-bottom: 10px;
+    color: wheat;
+}
+
+.container h2 {
+    padding-top: 20px;
+}
+
+.btn-msg {
+    margin: 150px 33px;
+}
+
+.buttonGroup1, .buttonGroup2 {
+    position: relative;
+    margin-left: 50px;
+}
+
+.buttonGroup2 {
+    padding-top: 5px;
+}
+
+#statusMessage {
+    padding-top: 10px;
+    text-align: center;
+}
+
+#liffData {
+    padding-top: 10px;
+    margin-left: 130px;
+    margin-bottom: 20px;
+}
