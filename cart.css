@@ -11,7 +11,16 @@
     color: wheat;
 }
 
-.container h2 {
+#login {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
     padding-top: 20px;
 }
 
@@ -21,6 +30,7 @@
 
 .buttonGroup1, .buttonGroup2 {
     position: relative;
+    margin-top: 10px;
     margin-left: 50px;
 }
 

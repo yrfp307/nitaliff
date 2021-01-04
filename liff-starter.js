@@ -68,7 +68,10 @@ function initializeApp() {
  
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
+        document.getElementById('login').classList.add('hidden');
+        document.getElementById('container').classList.remove('hidden');
         document.getElementById('liffLoginButton').disabled = true;
+        userProfile()
     } else {
         document.getElementById('liffLogoutButton').disabled = true;
     }
@@ -95,16 +98,16 @@ function displayIsInClientInfo() {
     }
 }
 
-function profile() {
+function userProfile() {
+    const lineProfile = document.getElementById('profileAcc');
     liff.getProfile()
     .then(profile => {
-    //tangkap response json dengan nama profile dan lakukan sesuatu terhadap variable tsb, ganti dgn kode yg diinginkan
-    console.log(profile) //print seluruh data json
-    console.log(profile.displayName) //print hanya nama user
+        accName = profile.displayName; //print only username
+        const pictureLine = profile.pictureUrl;
+        lineProfile.innerHTML = `<img src="${pictureLine}" alt="Profil Line Photo" class="w-50 rounded-circle d-block mx-auto my-2"></img>` + 'Selamat Datang ' + `${accName}`;
   })
-  .catch(error => {
-    //tangkap error yang dihasilkan dan print ke console.log, dipanggil hanya jika terjadi error
-    console.log(error)
+  .catch((err) => {
+    console.log(error, err)
   })
 
 } 
@@ -137,9 +140,10 @@ function registerButtonHandlers() {
         } else {
             liff.sendMessages([{
                 'type': 'text',
-                'text': 'Orderan kamu :'
+                'text': 'Hi, ' + `${accName}! ` + '\nOrderan kamu : \n' + `Karedok : ${menu1}` + `\nPecel Lele : ${menu2}\n` + `Lontong sayur : ${menu3}` + `\nEs teh manis : ${menu4}\n` +
+                        `Total harga : Rp ${(menu1*15000)+(menu2*12000)+(menu3*20000)+(menu4*3000)}`
             }]).then(function() {
-                window.alert('Terima kasih atas orderannya. Kami akan mengirimkan pesan untuk menu yang telah diorder.');
+                window.alert('Terima kasih atas orderannya.');
             }).catch(function(error) {
                 window.alert('Ada kesalahan saat mengirimkan pesan: ' + error);
             });

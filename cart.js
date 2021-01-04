@@ -22,14 +22,14 @@ const decrementQuantity = (param) => {
     }
 }
   
-const setTotal = () => {
+let setTotal = () => {
     for(let i=1; i<=4; i++){
       eval(`menu${i} = document.querySelector('.quantity.menu-${i}').innerText;`);
     }
     showPayment();
 }
 
-const showPayment = () => {
+let showPayment = () => {
     let total = (menu1*15000)+(menu2*12000)+(menu3*20000)+(menu4*3000);
     let totalElm =  document.querySelector('.total');
 
@@ -37,9 +37,8 @@ const showPayment = () => {
     Karedok : ${menu1} <br>
     Pecel lele : ${menu2} <br>
     Lontong sayur : ${menu3} <br>
-    Es teh hangat : ${menu4} <br>
-    <br>
+    Es teh manis : ${menu4} <br>
+    <hr>
     Total : Rp ${total}
-  `;  
+  `;
 }
-
